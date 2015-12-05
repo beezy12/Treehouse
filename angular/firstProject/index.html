@@ -13,10 +13,11 @@
 	<div ng-controller="mainCtrl" class="list">
 		<h1 ng-click="helloWorld()">My TODOs</h1>
 		<!-- ng-repeat below is going to repeat the HTML the div wraps around for every element in the array or object -->
-		<div ng-repeat="todo in todos">
+		<!-- ng-class takes the name of the css class you want to apply as the key, and the value is the expression to evaluate. the 'edited' class is what adds the word edited next to one of the todo tasks on the list when the user edits it -->
+		<div class="item" ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in todos">
 			<input ng-model="todo.completed" type="checkbox"/>
-			<label ng-hide="editing" class="editing-label" ng-click="helloWorld()"> {{todo.name}} </label>
-			<input ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
+			<label ng-hide="editing" ng-click="helloWorld()"> {{todo.name}} </label>
+			<input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
 		
 			<div class="actions">
 				<a href="" ng-click="editing = !editing">edit</a>
@@ -28,6 +29,7 @@
 		</div>
 		{{todos}}
 	</div>
+
 
 
 	<script src="lib/bower_components/angular/angular.min.js"></script>

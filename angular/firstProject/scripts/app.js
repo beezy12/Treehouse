@@ -2,8 +2,9 @@
 // notice that it won't be on other pages
 angular.module("todoListApp", [])
 .controller('mainCtrl', function($scope) {
-	$scope.helloWorld = function() {
-		console.log("This is coming from the mainCtrl, it's the helloWorld function")
+
+	$scope.learningNgChange = function() {
+		console.log("An input changed")
 	};
 
 	$scope.todos = [
@@ -13,6 +14,6 @@ angular.module("todoListApp", [])
 		{"name": "sang a song"}
 	]
 
-
 }); // end of controller
+
 
