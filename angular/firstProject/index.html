@@ -9,19 +9,26 @@
 
 <body ng-app="todoListApp">
 
-	<h1>My TODOs</h1>
 
 	<div ng-controller="mainCtrl" class="list">
-		<input type="checkbox" />
-		<label class="editing-label">A sample todo</label>
-		<input class="editing-label" type="text" />
-	
-		<div class="actions">
-			<a href="">edit</a>
-			<a href="" ng-click="helloWorld()">save</a>
-			<a href="" class="delete">delete</a>
+		<h1 ng-click="helloWorld()">My TODOs</h1>
+		<!-- ng-repeat below is going to repeat the HTML the div wraps around for every element in the array or object -->
+		<div ng-repeat="todo in todos">
+			<input ng-model="todo.completed" type="checkbox"/>
+			<label ng-hide="editing" class="editing-label" ng-click="helloWorld()"> {{todo.name}} </label>
+			<input ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
+		
+			<div class="actions">
+				<a href="" ng-click="editing = !editing">edit</a>
+				       <!-- ^^ this means "if editing is set to true, set it to false. And if editing is set to false, set it to true." It's essentially a toggle. Check it out in ng-inspector. Then look up at the label's ng-hide="editing". This means if editing is true, hide the label. THen below that look at the input ng-show="editing". this shows if editing is true.
+				       THIS MAKES IT TO WHERE THE INPUT BOX IS ONLY VISIBLE IF THE USER WANTS TO EDIT THE TASK ON THEIR TODO LIST -->
+				<a href="" ng-click="helloWorld()">save</a>
+				<a href="" class="delete">delete</a>
+			</div>
 		</div>
+		{{todos}}
 	</div>
+
 
 	<script src="lib/bower_components/angular/angular.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->

@@ -5,4 +5,14 @@ angular.module("todoListApp", [])
 	$scope.helloWorld = function() {
 		console.log("This is coming from the mainCtrl, it's the helloWorld function")
 	};
-});
+
+	$scope.todos = [
+		{"name": "wash up"},
+		{"name": "pay up"},
+		{"name": "do the damn thing"},
+		{"name": "sang a song"}
+	]
+
+
+}); // end of controller
+
