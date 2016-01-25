@@ -1,0 +1,14 @@
+{
+  "name": "practicing",
+  "version": "1.0.0",
+  "description": "doing a treehouse course",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brian",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
