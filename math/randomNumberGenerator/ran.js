@@ -21,10 +21,16 @@ var input1 = prompt("Enter a starting number");
 var bottomNumber = parseInt(input1);
 var input = prompt("Please type a number");
 var topNumber = parseInt(input);
-var randomNumber = Math.floor(Math.random() * (topNumber - bottomNumber + 1)) + bottomNumber;    //don't really get this part
-// but he says if we wanted a number between 10 and 25, we subtract those 2...which leaves the random number between 0 and up to 16, 
-// but with the floor it makes it 0 to 15....so you add he bottomNumber back on there (10) ....so it makes it 
-// a random number between 10 and 25
+var randomNumber = Math.floor(Math.random() * (topNumber - bottomNumber + 1)) + bottomNumber;   
+// but he says if we wanted a number between 10 and 25, we subtract those 2...which leaves the random number between 0 and up to 16 (16 because of the +1), 
+// but with the floor it makes it 0 to 15....so you add the bottomNumber back on there (10) ....so it makes it 
+// a random number between 10 and 25.  **** When you do the topNumber - bottomNumber + 1 in the parentheses,
+/* it executes first leaving you with 16, but then that 16 gets multiplied by the Math.random() first after coming
+    out of the parentheses, which gives you number a number from 0 up to BUT NOT INCLUDING 16, but then the
+    floor brings it back down to 15. Then, you add the bottomNumber (10) back in at the end, which brings the
+    bottom up from 0 to 10, and brings the top number from 15 to 25. Hence......10 to 25.
+
+
 var message = "<p>" + randomNumber + " is a number between " + bottomNumber + " and " + topNumber + ".</p>";
 document.write(message);
 
